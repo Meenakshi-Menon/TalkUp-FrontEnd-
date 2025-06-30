@@ -1,27 +1,29 @@
 // routes
-import Router from "./routes";
 // theme
-import ThemeProvider from './theme';
 // components
-import ThemeSettings from './components/settings';
-import { Snackbar } from "@mui/material";
-import React from "react";
-import MuiAlert from '@mui/material/Alert';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSnackbar } from "./redux/slices/app";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import ThemeSettings from "./components/settings";
+import ThemeProvider from "./theme";
+import Router from "./routes";
+import { closeSnackBar } from "./redux/slices/app";
+import { socket } from "./socket";
 
 const vertical = "bottom";
 const horizontal = "center";
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+const Alert = React.forwardRef((props, ref) => (
+  <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
+));
 
 function App() {
   const dispatch = useDispatch();
-  const { open, message, severity } = useSelector((state) => state.app.snackbar);
 
-
+  const { severity, message, open } = useSelector(
+    (state) => state.app.snackbar
+  );
 
   return (
     <>
@@ -39,21 +41,25 @@ function App() {
           autoHideDuration={4000}
           key={vertical + horizontal}
           onClose={() => {
-
-            dispatch(closeSnackbar());
+            console.log("This is clicked");
+            dispatch(closeSnackBar());
           }}
         >
-          <Alert onClose={() => {
-            dispatch(closeSnackbar());
-          }} severity={severity} sx={{ width: "100%" }} >
+          <Alert
+            onClose={() => {
+              console.log("This is clicked");
+              dispatch(closeSnackBar());
+            }}
+            severity={severity}
+            sx={{ width: "100%" }}
+          >
             {message}
           </Alert>
         </Snackbar>
       ) : (
-      <></>
+        <></>
       )}
     </>
-
   );
 }
 

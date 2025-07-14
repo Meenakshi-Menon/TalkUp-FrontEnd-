@@ -19,22 +19,28 @@ import Embed from "react-embed";
 const MessageOption = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(event.currentTarget); // This will now be a valid DOM node
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <>
-      <DotsThreeVertical
-        size={20}
+      <IconButton
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-      />
+        size="small"
+      >
+        <DotsThreeVertical size={20} />
+      </IconButton>
+
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -45,8 +51,10 @@ const MessageOption = () => {
         }}
       >
         <Stack spacing={1} px={1}>
-          {Message_options.map((el) => (
-            <MenuItem onClick={handleClose}>{el.title}</MenuItem>
+          {Message_options.map((el, index) => (
+            <MenuItem key={index} onClick={handleClose}>
+              {el.title}
+            </MenuItem>
           ))}
         </Stack>
       </Menu>

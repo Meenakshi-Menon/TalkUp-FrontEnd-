@@ -79,7 +79,7 @@ const SideBar = () => {
             }}
             p={1}
           >
-            <img src={Logo} alt="Tawk" />
+            <img src={Logo} alt="TalkUp" />
           </Box>
           <Stack
             sx={{ width: "max-content" }}

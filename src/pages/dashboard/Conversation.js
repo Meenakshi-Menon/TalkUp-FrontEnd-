@@ -95,6 +95,7 @@ const Conversation = ({ isMobile, menu }) => {
 const ChatComponent = () => {
   const isMobile = useResponsive("between", "md", "xs", "sm");
   const theme = useTheme();
+  const dispatch = useDispatch(); // ✅ Added
 
   const messageListRef = useRef(null);
 
@@ -102,10 +103,31 @@ const ChatComponent = () => {
     (state) => state.conversation.direct_chat
   );
 
+  // ✅ Existing scroll effect
   useEffect(() => {
-    // Scroll to the bottom of the message list when new messages are added
     messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
   }, [current_messages]);
+
+  // ✅ NEW: Listen to incoming socket messages
+  useEffect(() => {
+    socket.on("new_message", ({ conversation_id, message }) => {
+      const user_id = window.localStorage.getItem("user_id");
+
+      dispatch({
+        type: "conversation/AddDirectMessage",
+        payload: {
+          id: message._id,
+          type: "msg",
+          subtype: message.type,
+          message: message.text,
+          incoming: message.to === user_id,
+          outgoing: message.from === user_id,
+        },
+      });
+    });
+
+    return () => socket.off("new_message");
+  }, [dispatch]);
 
   return (
     <Stack
@@ -113,7 +135,6 @@ const ChatComponent = () => {
       maxHeight={"100vh"}
       width={isMobile ? "100vw" : "auto"}
     >
-      {/*  */}
       <ChatHeader />
       <Box
         ref={messageListRef}
@@ -122,12 +143,10 @@ const ChatComponent = () => {
           position: "relative",
           flexGrow: 1,
           overflow: "scroll",
-
           backgroundColor:
             theme.palette.mode === "light"
               ? "#F0F4FA"
               : theme.palette.background,
-
           boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
         }}
       >
@@ -135,13 +154,12 @@ const ChatComponent = () => {
           <Conversation menu={true} isMobile={isMobile} />
         </SimpleBarStyle>
       </Box>
-
-      {/*  */}
       <ChatFooter />
     </Stack>
   );
 };
 
 export default ChatComponent;
+
 
 export { Conversation };

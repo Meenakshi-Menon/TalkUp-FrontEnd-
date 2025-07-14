@@ -44,9 +44,8 @@
 
 [📘 View Full Project Report (PDF)](./report/TalkUp_Project_Report.pdf)
 
-## 📸 Screenshots
 
-## 📸 Screenshots
+## 🖼️ User Interface Overview
 
 ### 🔐 Login Page
 Users can securely log in using their credentials to access the chat platform.

@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# 💬 TalkUp - Real-Time Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**TalkUp** is a full-stack real-time chat application designed to enable seamless communication with instant messaging, secure authentication, and a clean, responsive UI. Built with React, Node.js, Express.js, MongoDB, and Socket.IO, it ensures fast, bi-directional communication between users.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- 🔐 User Registration & Login (with secure authentication)
+- 💬 Real-Time Messaging using WebSockets (Socket.IO)
+- 📦 Persistent Chat History with MongoDB
+- 🧩 RESTful APIs for User & Message Handling
+- 📱 Responsive Frontend with Tailwind CSS
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Frontend       | Backend        | Real-Time         | Database  | Others                  |
+|----------------|----------------|-------------------|-----------|--------------------------|
+| React          | Node.js        | Socket.IO         | MongoDB   | Tailwind CSS, Express.js |
+| Axios          | Express        | WebSockets        | Mongoose  | REST APIs, Postman       |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧪 Getting Started
 
-### `npm test`
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Meenakshi-Menon/TalkUp-FrontEnd-.git
+   cd talkup
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser at:
+   ```
+   http://localhost:3001
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📄 Project Report
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[📘 View Full Project Report (PDF)](./report/TalkUp_Project_Report.pdf)
 
-### `npm run eject`
+## 📸 Screenshots
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📸 Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🔐 Login Page
+Users can securely log in using their credentials to access the chat platform.
+![Login Page](chat_app_ss/login.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🧾 New User Registration
+New users can register via a simple and secure sign-up form.
+![Register Page](chat_app_ss/new_user_register.png)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 💬 Chat Interface
+The core real-time chat screen with message history and dynamic interaction.
+![Chat Interface](chat_app_ss/chats.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 🔑 Forgot & Reset Password
+Users can recover their accounts using the "Forgot Password" feature, which sends a verification link via email. Once verified, they can reset their password securely.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Forgot Password](chat_app_ss/forgot_pw.png)
+![Reset Password](chat_app_ss/reset_pw.png)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### ⚙️ Settings Panel
+Users can manage their profile and preferences through the settings menu.
+![Settings](chat_app_ss/settings.png)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🎨 Theme Customization
+Users can switch between light and dark modes to personalize their UI experience.
+![Theme Settings](chat_app_ss/dark_theme.png)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## 🙋‍♀️ About the Developer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+I’m **Meenakshi S Menon**, a final-year CSE (AI/ML) student at VIT Bhopal, passionate about building intelligent, scalable web applications. This project reflects my interest in real-time systems and full-stack development.
 
-### `npm run build` fails to minify
+- 🔗 [LinkedIn](https://www.linkedin.com/in/meenakshi-menon-368211252/)
+- 💻 [GitHub](https://github.com/Meenakshi-Menon)
+- 📧 meenakshisgmenon@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📌 License
+
+This project is open source and available under the [MIT License](LICENSE).
